@@ -19,7 +19,7 @@ spec:
       type: string
     - name: GIT_REVISION
       type: string
-    - default: 'image-registry.openshift-image-registry.svc:5000/a-demo-pipeline/rest-and-db'
+    - default: 'quay.io/rh_ee_sshirodk/rest-and-db'
       name: IMAGE_NAME
       type: string
     - default: .
