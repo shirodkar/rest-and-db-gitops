@@ -4,14 +4,7 @@ metadata:
   name: rest-and-db
   labels:
     app: rest-and-db
-    app.kubernetes.io/component: rest-and-db
-    app.kubernetes.io/instance: rest-and-db
-    app.kubernetes.io/name: rest-and-db
-    app.kubernetes.io/part-of: rest-and-db
-    app.openshift.io/runtime: java
-    app.openshift.io/runtime-version: openjdk-17-ubi8
 spec:
-  host: rest-and-db.apps.cluster-hr9pq.hr9pq.sandbox1885.opentlc.com
   to:
     kind: Service
     name: rest-and-db

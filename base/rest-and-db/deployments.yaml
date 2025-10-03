@@ -4,12 +4,6 @@ metadata:
   name: rest-and-db
   labels:
     app: rest-and-db
-    app.kubernetes.io/component: rest-and-db
-    app.kubernetes.io/instance: rest-and-db
-    app.kubernetes.io/name: rest-and-db
-    app.kubernetes.io/part-of: rest-and-db
-    app.openshift.io/runtime: java
-    app.openshift.io/runtime-version: openjdk-17-ubi8
 spec:
   replicas: 1
   selector:
