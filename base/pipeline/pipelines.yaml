@@ -76,6 +76,8 @@ spec:
       workspaces:
         - name: source
           workspace: workspace
+        - name: dockerconfig
+          workspace: quaysecret
     - name: push-image-to-quay
       params:
         - name: SOURCE_IMAGE_URL
@@ -103,3 +105,4 @@ spec:
         resolver: cluster
   workspaces:
     - name: workspace
+    - name: quaysecret
