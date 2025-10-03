@@ -39,6 +39,8 @@ spec:
             requests:
               memory: 256Mi
               cpu: 200m
+      imagePullSecrets:
+        - name: quay-secret
   strategy:
     type: RollingUpdate
     rollingUpdate:
