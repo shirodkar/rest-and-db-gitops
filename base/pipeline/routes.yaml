@@ -1,0 +1,17 @@
+kind: Route
+apiVersion: route.openshift.io/v1
+metadata:
+  name: el-event-listener-4hk8eh
+  labels:
+    app.kubernetes.io/managed-by: EventListener
+    app.kubernetes.io/part-of: Triggers
+    eventlistener: event-listener
+spec:
+  host: el-event-listener.apps.cluster-hr9pq.hr9pq.sandbox1885.opentlc.com
+  to:
+    kind: Service
+    name: el-event-listener
+    weight: 100
+  port:
+    targetPort: http-listener
+  wildcardPolicy: None
