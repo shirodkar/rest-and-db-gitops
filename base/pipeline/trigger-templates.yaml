@@ -15,43 +15,17 @@ spec:
     - apiVersion: tekton.dev/v1
       kind: PipelineRun
       metadata:
-        annotations:
-          pipeline.openshift.io/started-by: admin
-        generateName: rest-and-db-
         labels:
-          app.kubernetes.io/instance: rest-and-db
-          app.kubernetes.io/name: rest-and-db
-          operator.tekton.dev/operand-name: openshift-pipelines-addons
-          pipeline.openshift.io/runtime: java
-          pipeline.openshift.io/runtime-version: openjdk-17-ubi8
-          pipeline.openshift.io/type: kubernetes
           tekton.dev/pipeline: rest-and-db
       spec:
-        params:
-          - name: APP_NAME
-            value: rest-and-db
-          - name: GIT_REPO
-            value: 'https://github.com/shirodkar/rest-and-db.git'
-          - name: GIT_REVISION
-            value: ''
-          - name: IMAGE_NAME
-            value: 'image-registry.openshift-image-registry.svc:5000/a-demo-pipeline/rest-and-db'
-          - name: PATH_CONTEXT
-            value: .
-          - name: VERSION
-            value: openjdk-17-ubi8
         pipelineRef:
           name: rest-and-db
-        status: null
+        taskRunTemplate:
+          serviceAccountName: pipeline
         workspaces:
           - name: workspace
-            volumeClaimTemplate:
-              metadata:
-                labels:
-                  tekton.dev/pipeline: rest-and-db
-              spec:
-                accessModes:
-                  - ReadWriteOnce
-                resources:
-                  requests:
-                    storage: 1Gi
+            persistentVolumeClaim:
+              claimName: rest-and-db-pipeline
+          - name: quaysecret
+            secret:
+              secretName: quaysecret
