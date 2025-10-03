@@ -26,7 +26,6 @@ spec:
           pipeline.openshift.io/runtime-version: openjdk-17-ubi8
           pipeline.openshift.io/type: kubernetes
           tekton.dev/pipeline: rest-and-db
-        namespace: a-demo-pipeline
       spec:
         params:
           - name: APP_NAME
