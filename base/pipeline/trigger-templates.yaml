@@ -17,6 +17,7 @@ spec:
       metadata:
         labels:
           tekton.dev/pipeline: rest-and-db
+        generateName: rest-and-db-
       spec:
         pipelineRef:
           name: rest-and-db
